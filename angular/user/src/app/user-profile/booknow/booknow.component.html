@@ -1,0 +1,7 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav" *ngFor="let cat of category">
+        <li class="nav-item">
+          <a class="nav-link" (click)="onFood(cat._id)">{{cat.categoryname}}</a>
+        </li>
+    </ul>
+</nav>

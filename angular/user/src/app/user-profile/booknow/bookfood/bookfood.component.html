@@ -1,0 +1,34 @@
+<!-- <p>
+  {{id}}
+</p> -->
+
+<div class="container" *ngFor="let food of foods">
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="width: 18rem;">
+    <img [src]="getSafeUrl(food.fpic)" class="card-img-top" alt="pic">
+    <div class="card-body">
+      <h5 class="card-title">{{ food.fname }}</h5>
+      <p class="card-text">{{ food.fdesc }}</p>
+      <p>Price: {{ food.fprice|currency: 'INR' }}</p>
+      <button (click)="onBook(food._id)" class="btn btn-success">Book Now</button>
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
+
+<!-- <div class="food">
+  <div class="row" >
+    <div class="column" *ngFor="let food of foods">
+      <div class="content">
+        <img [src]="getSafeUrl(food.fpic)" alt="pic" height="200" width="200">
+        <h3 style="text-align:center;">{{food.fname}}</h3>
+        <p>{{food.fdesc}}</p>
+        <h4>Price:{{food.fprice}}/-</h4>
+        <button class="btn btn-success" (click)="onBook(food._id)">Book Now</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+    

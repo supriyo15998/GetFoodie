@@ -1,0 +1,28 @@
+<div class="viewcat" style="background-color: aquamarine; max-height: 300vh;">
+    <div class="container">
+      <h2>View Foods</h2>            
+      <table class="table table-hover">
+          <tr>
+            <th>Sl No.</th>
+            <th>Food Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Picture</th>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tr *ngFor="let food of foods;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{food.fname}}</td>
+            <td>{{food.fdesc}}</td>
+            <td>{{food.fprice}}</td>
+            <td><img [src]="getSafeUrl(food.fpic)" height="100" width="100"></td>
+            <td>{{food.category_id}}</td>
+            <td><a routerLink="../EditFood/{{food._id}}"><img src="assets/logo/edit.png" id="icon" height="50" width="50" alt="User Icon" /></a></td>
+            <td><a class="action-btn" (click)="onDelete(food._id)"><img src="assets/logo/delete.png" id="icon" height="50" width="50" alt="User Icon" /></a></td>
+          </tr>
+          <router-outlet></router-outlet>
+      </table>
+    </div>
+</div>

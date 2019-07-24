@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" routerLink="adminProfile">GetFoodie</a>
+  
+    <!-- Links -->
+    <ul class="navbar-nav">
+     
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Category
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="AddCategory">Add Category</a>
+          <a class="dropdown-item" routerLink="ViewCategory">View Category</a>
+        </div>
+      </li>
+
+      <!--Food Menu-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Food
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="AddFood">Add Food</a>
+          <a class="dropdown-item" routerLink="ViewFood">View Food</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="reguser">View User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="booking">View Booking</a>
+      </li>
+      <!--End Food Menu-->
+      <li *ngIf="adminDetails" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:aquamarine">
+          Welcome Admin: {{adminDetails.fullName.split(' ')[0]}}
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="onLogout()">Log Out</a>
+        </div>
+      </li>
+
+    </ul>
+  </nav>
+<router-outlet></router-outlet>

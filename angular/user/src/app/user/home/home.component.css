@@ -1,0 +1,24 @@
+.background{
+    background-image: url('../../../assets/a.jpg');
+    background-repeat: no-repeat;
+    
+    }
+    .intro{
+    font-size: 40px;
+    padding: 50px;
+    margin-top: 20px;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: white;
+    }
+    .logo{
+    opacity: 0.8;
+    text-align: center;
+    margin-top: 17%;
+    }
+    .description{
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-family: 'Rubik Mono One', sans-serif;
+    background: linear-gradient(to bottom, rgba(0,45,75,0.5), rgba(0,0,0,0.9));
+    }

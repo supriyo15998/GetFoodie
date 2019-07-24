@@ -1,0 +1,6 @@
+{
+    "development":{
+        "JWT_SECRET": "MYSECRET1234",
+        "JWT_EXP": "1h"
+    }
+}

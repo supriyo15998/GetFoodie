@@ -1,0 +1,10 @@
+h2{
+    text-align: center;
+    margin-left: 30%;
+    border: 1px solid green;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    color: white;
+    background-color: darkslategray;
+}

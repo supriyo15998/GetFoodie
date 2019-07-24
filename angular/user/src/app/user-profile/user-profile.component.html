@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" routerLink="adminProfile">GetFoodie</a>
+  
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="booknow">Book Now</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#">View Previous Bookings</a>
+      </li>
+      <!--End Food Menu-->
+      <li *ngIf="userDetails" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:aquamarine">
+          Welcome {{userDetails.fullName.split(' ')[0]}}
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="onLogout()">Log Out</a>
+        </div>
+      </li>
+
+    </ul>
+  </nav>
+<router-outlet></router-outlet>

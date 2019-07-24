@@ -1,0 +1,25 @@
+form{
+    margin-top: 25px;
+    width: 65%;
+    border: 0px solid white;
+    padding: 10px;
+    margin-left: 15%;
+    -webkit-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+    box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+    color: white;
+    }
+    h1{
+    text-align: center;
+    color: white;
+    }
+    .signup{
+    background: url('https://upserve.com/media/sites/2/bigstock-Staff-showing-a-sample-of-chee-189121246-1100x600.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+    }
+    .top-button{
+    text-align: center;
+    }

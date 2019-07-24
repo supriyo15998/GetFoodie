@@ -1,0 +1,12 @@
+.footer{
+    background-color: #218F76;
+    color: white;
+    }
+    .link{
+    text-decoration: none;
+    color: white;
+    }
+    .link:hover{
+    color: #EEC213;
+    }
+    
