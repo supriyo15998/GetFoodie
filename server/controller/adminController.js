@@ -1,6 +1,7 @@
 const router = require('../routes/routes');
 var adminModel = require('../model/adminModel');
 var userModel = require('../model/userModel');
+var orderModel = require('../model/ordersModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
@@ -82,6 +83,14 @@ module.exports.getRegUsers = (req,res) => {
     userModel.find((err,docs) => {
         if(err)
             res.send(err)
+        else
+            res.send(docs);
+    });
+}
+module.exports.viewOrders = (req,res) => {
+    orderModel.find((err,docs)=>{
+        if(err)
+            res.send(err);
         else
             res.send(docs);
     });

@@ -1,0 +1,25 @@
+<div class="all">
+<div class="container">
+    <form #bookingForm="ngForm" (ngSubmit)="bookingForm.valid && onSubmit(bookingForm)" class="formBooking">
+        <label>Name of the Customer:</label><br>
+        <input type="text" name="cname" #cname="ngModel" [(ngModel)]="model.cname" value="{{ userDetails.fullName }}" readonly><br>
+        <label>Email of the Customer:</label><br>
+        <input type="text" name="cemail" #cemail="ngModel" [(ngModel)]="model.cemail" value="{{ userDetails.email }}" readonly><br>
+        <label>Name of the food:</label><br>
+        <input type="text" name="fname" #fname="ngModel" [(ngModel)]="model.fname" value="{{ foods.fname }}" readonly><br>
+        <label>Description:</label><br>
+        <input type="text" name="fdesc" #fdesc="ngModel" [(ngModel)]="model.fdesc" value="{{ foods.fdesc }}"  readonly><br>
+        <label>Quantity:</label><br>
+        <input type="number" name="quant"><br>
+        <label>Total Price:</label><br>
+        <input type="number" name="price" readonly><br>
+        <label>Customer contact number:</label><br>
+        <input type="text" name="cphone" #cphone="ngModel" [(ngModel)]="model.cphone" value="{{ userDetails.phone }}" readonly><br>
+        <label>Customer address:</label><br>
+        <input type="text" name="caddress" #caddress="ngModel" [(ngModel)]="model.caddress" value="{{ userDetails.address }}" readonly><br>
+        <label>Date:</label><br>
+        <input type="text" name="date" #date="ngModel" [(ngModel)]="model.date" value="{{ today|date }}" readonly><br>
+        <button type="submit" class="btn btn-success">Confirm Booking</button>
+    </form>
+</div>
+</div>

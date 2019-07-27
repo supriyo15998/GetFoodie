@@ -25,12 +25,16 @@ router.post('/admin/login',adminController.loginAdmin);
 router.get('/adminProfile',jwtHelper.verifyJwtToken,adminController.adminProfile);
 //view all registered user
 router.get('/adminProfile/regUser',jwtHelper.verifyJwtToken,adminController.getRegUsers);
+router.get('/adminProfile/viewOrders',jwtHelper.verifyJwtToken,adminController.viewOrders);
 
 //user login and signup
 
 router.post('/users/signup',userController.registerUser);
 router.post('/users/login',userController.loginUser);
 router.get('/userProfile',jwtHelper.verifyJwtToken,userController.userProfile);
+
+//place order
+router.post('/userProfile/placeOrder',jwtHelper.verifyJwtToken, userController.placeOrder);
 //CRUD on categories
 
 router.post('/categories',categoryController.insertCategory);

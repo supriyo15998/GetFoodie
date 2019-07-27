@@ -16,6 +16,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './shared/user.service';
 import { BooknowComponent } from './user-profile/booknow/booknow.component';
 import { BookfoodComponent } from './user-profile/booknow/bookfood/bookfood.component';
+import { FinalBookingComponent } from './user-profile/booknow/final-booking/final-booking.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { BookfoodComponent } from './user-profile/booknow/bookfood/bookfood.comp
     SignupComponent,
     BooknowComponent,
     BookfoodComponent,
+    FinalBookingComponent,
   ],
   imports: [
     BrowserModule,

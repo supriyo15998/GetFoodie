@@ -32,7 +32,7 @@ export class BookfoodComponent implements OnInit {
   getSafeUrl(fpic){
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.apiurl + '/' + fpic);
   }
-  // onBook(id){
-  //   this.router.navigate(['']);
-  // }
+  onBook(id){
+    this.router.navigate(['userProfile/finalBooking', { id: id }]);
+  }
 }

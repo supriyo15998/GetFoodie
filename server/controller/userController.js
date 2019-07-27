@@ -1,5 +1,6 @@
 const router = require('../routes/routes');
 var userModel = require('../model/userModel');
+var orderModel = require('../model/ordersModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
@@ -74,7 +75,28 @@ module.exports.userProfile = (req,res,next) => {
                 if(!user)
                     return res.status(404).json({ status: false, message: 'User not found' });
                 else
-                    return res.status(200).json({ status:true, user: _.pick(user,['fullName', 'email']) });
+                    return res.status(200).json({ status:true, user: _.pick(user,['fullName', 'email', 'phone', 'address']) });
             }
         );
+}
+module.exports.placeOrder = (req,res) => {
+    var order = new orderModel();
+    order.fname = req.body.fname;
+    order.fdesc = req.body.fdesc;
+    order.cname = req.body.cname;
+    order.cemail = req.body.cemail;
+    order.cphone = req.body.cphone;
+    order.caddress = req.body.caddress;
+    order.quan = req.body.quan;
+    order.price = req.body.price;
+    order.date = req.body.date;
+    order.save((err,doc) => {
+        if(!err)
+            res.send(doc);
+        else {
+            return res.status(500).json({
+                error: "Internal Server Error"
+            });
+        }
+    });
 }

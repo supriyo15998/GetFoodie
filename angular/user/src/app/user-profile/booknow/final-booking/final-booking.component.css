@@ -1,0 +1,11 @@
+.formBooking{
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+label{
+    color: white;
+}
+.all{
+    background-color: #192A56;
+}

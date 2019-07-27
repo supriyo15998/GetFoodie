@@ -24,6 +24,6 @@ export class FoodService {
     return this.http.get(this.baseURL + 'foods/userfood' + `/${category_id}`);
   }
   getfoodid(_id: string) {
-    return this.http.get(this.baseURL + `/${_id}`);
+    return this.http.get(this.baseURL+ 'foods/' + `${_id}`);
   }
 }
