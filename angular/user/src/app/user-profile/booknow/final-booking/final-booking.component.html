@@ -1,26 +1,48 @@
-<div class="all">
-<div class="container">    
-    <form #bookingForm="ngForm" (ngSubmit)="onSubmit(bookingForm)" class="formBooking">
-        
-        <label>Name of the Customer:</label><br>
-        <input type="text" name="cname" ngModel value="{{userDetails.fullName}}"><br>
-        <!-- <label>Email of the Customer:</label><br>
-        <input type="text" name="cemail" #cemail="ngModel" ngModel value="{{ userDetails.email }}" readonly><br>
-        <label>Name of the food:</label><br>
-        <input type="text" name="fname" #fname="ngModel" ngModel value="{{ foods.fname }}" readonly><br>
-        <label>Description:</label><br>
-        <input type="text" name="fdesc" #fdesc="ngModel" ngModel value="{{ foods.fdesc }}"  readonly><br>
-        <label>Quantity:</label><br>
-        <input type="number" name="quant" #quant="ngModel" ngModel><br>
-        <label>Total Price:</label><br>
-        <input type="number" name="price" #price="ngModel" ngModel><br>
-        <label>Customer contact number:</label><br>
-        <input type="text" name="cphone" #cphone="ngModel" ngModel value="{{ userDetails.phone }}" readonly><br>
-        <label>Customer address:</label><br>
-        <input type="text" name="caddress" #caddress="ngModel" ngModel value="{{ userDetails.address }}" readonly><br>
-        <label>Date:</label><br>
-        <input type="text" name="date" #date="ngModel" ngModel value="{{ today|date }}" readonly><br> -->
-        <input type="submit" class="btn btn-success" value="Confirm Booking">
-       </form>
+<div style="text-align:center">
+    <h1>
+      Booking Food 
+    </h1>
 </div>
-</div>
+<div style="margin:20px 50px 20px 50px;">
+  <form #Foodform="ngForm" (ngSubmit)="onSubmit(Foodform)" enctype="multipart/form-data">
+      <input type="hidden" name="_id" #_id="ngModel" ngModel [(ngModel)]="selectedFood._id">
+    <div class="form-group">
+      <label for="Food">Food Name</label>
+      <input type="text" name="fname" #qname="ngModel" ngModel [(ngModel)]="selectedFood.fname" class="form-control" id="inputdefault" placeholder="Food Name" readonly>
+    </div>
+    <div class="form-group">
+      <label for="Food">Food Description</label>
+      <input type="text" name="fdesc" #qname="ngModel" ngModel [(ngModel)]="selectedFood.fdesc" class="form-control" id="inputdefault" placeholder="Food Description" readonly>
+    </div>
+    <div class="form-group">
+      <label for="Food">Food Price</label>
+      <input type="text" name="fprice" #qname="ngModel" ngModel [(ngModel)]="selectedFood.fprice" class="form-control" id="inputdefault" placeholder="Food Price" readonly>
+    </div>
+    <div class="form-group" *ngIf="userDetails">
+      <label for="Food">Customer Name</label>
+      <input type="text" name="cname" #qname="ngModel" ngModel [(ngModel)]="userDetails.fullName" class="form-control" id="inputdefault" placeholder="Food Price" readonly>
+    </div>
+    <div class="form-group" *ngIf="userDetails">
+      <label for="Food">Customer Email</label>
+      <input type="text" name="cemail" #qname="ngModel" ngModel [(ngModel)]="userDetails.email" class="form-control" id="inputdefault" placeholder="Food Price" readonly>
+    </div>
+    <div class="form-group" *ngIf="userDetails">
+      <label for="Food">Customer Phone</label>
+      <input type="text" name="cphone" #qname="ngModel" ngModel [(ngModel)]="userDetails.phone" class="form-control" id="inputdefault" placeholder="Food Price" readonly>
+    </div>
+    <div class="form-group">
+      <label for="Food">Address</label>
+      <input type="text" name="caddress" #qname="ngModel" ngModel class="form-control" id="inputdefault" placeholder="Address">
+    </div>
+    <div class="form-group">
+      <label for="Food">Quantity</label>
+      <input type="text" name="quan" #qname="ngModel" ngModel  class="form-control" id="inputdefault" placeholder="Quantity">
+    </div>
+    
+    
+  
+    <div class="form-group">
+      <input type="submit" class="form-control btn btn-success" id="inputdefault" value="ORDER NOW">
+    </div>
+  </form>
+  </div>

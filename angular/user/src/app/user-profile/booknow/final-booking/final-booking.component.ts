@@ -15,35 +15,39 @@ import { DatePipe } from '@angular/common'
   styleUrls: ['./final-booking.component.css']
 })
 export class FinalBookingComponent implements OnInit {
-  
+  userDetails;
   public id = '';
-  public foods = [];
-  public userDetails='';
-  public selectedOrder = new Order();
-  constructor(private route: ActivatedRoute, private router: Router, private fservice: FoodService, private sanitizer: DomSanitizer, private userService: UserService, private orderService: OrderService) { }
+  public selectedFood = new Food();
+  myDate = new Date();
+  public mydate;
+  constructor(private datePipe: DatePipe, private route: ActivatedRoute, private router: Router, private fservice: FoodService, private sanitizer: DomSanitizer, private userService: UserService, private orderService: OrderService) { }
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
     this.userService.getUserProfile().subscribe(
       res => {
-       // console.log(data);
         this.userDetails = res['user'];
         console.log(this.userDetails);
       },
       err => {
         console.log(err);
       });
-      this.getFoodDetails(this.id);
-  }
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.getFoodDetails(this.id);  
+    }
   getFoodDetails(id){
     this.fservice.getfoodid(id).subscribe(
       res => {
-        this.foods = res as Food[];
-        console.log(this.foods);
+        this.selectedFood = res as Food;
+        console.log(this.selectedFood);
+      },
+      err => {
+        console.log(err);
       });
   }
   onSubmit(form: NgForm){
     console.log(form.value);
-   /* this.orderService.placeOrder(this.selectedOrder).subscribe(
+    form.value.price = form.value.fprice * form.value.quan;
+    form.value.date = this.mydate;
+    this.orderService.placeOrder(form.value).subscribe(
       data => {
         console.log(data);
       },
@@ -51,6 +55,6 @@ export class FinalBookingComponent implements OnInit {
         console.log(error);
       });
       alert('Order Placed!');
-      this.router.navigateByUrl('/userProfile/booknow');*/
+      this.router.navigateByUrl('/userProfile/booknow');
   }
 }
