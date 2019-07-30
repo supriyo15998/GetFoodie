@@ -1,7 +1,8 @@
 .background{
     background-image: url('../../../assets/a.jpg');
     background-repeat: no-repeat;
-    
+    width: 100%;
+    background-size: 100%;
     }
     .intro{
     font-size: 40px;

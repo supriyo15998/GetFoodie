@@ -2,36 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserService } from '../../../shared/user.service';
+import { User} from '../../../shared/user.model';
 import { FoodService } from '../../../shared/food.service';
 import { Food } from '../../../shared/food.model'
+import { OrderService } from '../../../shared/order.service';
+import { Order } from '../../../shared/order.model';
 import { NgForm } from '@angular/forms';
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-final-booking',
   templateUrl: './final-booking.component.html',
   styleUrls: ['./final-booking.component.css']
 })
 export class FinalBookingComponent implements OnInit {
-  today: number = Date.now();
+  
   public id = '';
   public foods = [];
-  userDetails;
-  constructor(private route: ActivatedRoute, private router: Router, private fservice: FoodService, private sanitizer: DomSanitizer, private userService: UserService) { }
-  model = {
-    cname: '',
-    cemail: '',
-    fname: '',
-    fdesc: '',
-    quant: null,
-    price: null,
-    cphone: '',
-    caddress: '',
-    date: ''
-  };
+  public userDetails='';
+  public selectedOrder = new Order();
+  constructor(private route: ActivatedRoute, private router: Router, private fservice: FoodService, private sanitizer: DomSanitizer, private userService: UserService, private orderService: OrderService) { }
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.userService.getUserProfile().subscribe(
-      data => {
-        this.userDetails = data['user'];
+      res => {
+       // console.log(data);
+        this.userDetails = res['user'];
         console.log(this.userDetails);
       },
       err => {
@@ -45,5 +40,17 @@ export class FinalBookingComponent implements OnInit {
         this.foods = res as Food[];
         console.log(this.foods);
       });
+  }
+  onSubmit(form: NgForm){
+    console.log(form.value);
+   /* this.orderService.placeOrder(this.selectedOrder).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+      alert('Order Placed!');
+      this.router.navigateByUrl('/userProfile/booknow');*/
   }
 }

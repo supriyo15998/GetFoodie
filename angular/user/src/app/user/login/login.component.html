@@ -3,7 +3,7 @@
         <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Email:</label>
         <div class="col-sm-10">
-        <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
+        <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Enter your Email" [pattern]="emailRegex" required [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
         <div *ngIf="signInForm.submitted && email.errors?.pattern">
             <label class="validation-message">Invalid email address.</label>
         </div>
@@ -12,7 +12,7 @@
         <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Password:</label>
         <div class="col-sm-10">
-        <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4" [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Enter your Password" required minlength="4" [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
         <div *ngIf="signInForm.submitted && password.errors?.minlength">
         <label class="validation-message">Minimum 4 characters.</label>
         </div>
