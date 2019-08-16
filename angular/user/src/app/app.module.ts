@@ -18,6 +18,7 @@ import { UserService } from './shared/user.service';
 import { BooknowComponent } from './user-profile/booknow/booknow.component';
 import { BookfoodComponent } from './user-profile/booknow/bookfood/bookfood.component';
 import { FinalBookingComponent } from './user-profile/booknow/final-booking/final-booking.component';
+import { PreviousBookingComponent } from './user-profile/previous-booking/previous-booking.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FinalBookingComponent } from './user-profile/booknow/final-booking/fina
     BooknowComponent,
     BookfoodComponent,
     FinalBookingComponent,
+    PreviousBookingComponent,
   ],
   imports: [
     BrowserModule,

@@ -32,14 +32,18 @@ module.exports.loginUser = (req,res, next) => {
         if(user.length < 1)
         {
             return res.status(404).json({
-                error: "User doesn't exist"
+                error: {
+                    email: "User doesn't exist"
+                }
             });
         }
         bcrypt.compare(req.body.password, user[0].password, (err,result) => {
             if(err)
             {
                 return res.status(401).json({
-                    error: "Authorization Failed"
+                    error: {
+                        email: "Authorization Failed"
+                    }
                 });
             }
             if(result)
@@ -58,7 +62,9 @@ module.exports.loginUser = (req,res, next) => {
                 });
             }
             res.status(401).json({
-                error: "Incorrect Password"
+                error: {
+                    password: "Incorrect password"
+                }
             })
         });
     })
@@ -99,4 +105,18 @@ module.exports.placeOrder = (req,res) => {
             });
         }
     });
+}
+module.exports.getUserOrder = (req,res) => {
+    orderModel.find({cemail: req.params.cemail}, (err,doc) => {
+        if(!err)
+        {
+            res.send(doc);
+        }
+        else
+        {
+            return res.status(500).json({
+                error: "Internal Server Error"
+            })
+        }
+    })
 }

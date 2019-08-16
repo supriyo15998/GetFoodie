@@ -18,7 +18,7 @@ export class FinalBookingComponent implements OnInit {
   userDetails;
   public id = '';
   public selectedFood = new Food();
-  myDate = new Date();
+  public myDate = new Date();
   public mydate;
   constructor(private datePipe: DatePipe, private route: ActivatedRoute, private router: Router, private fservice: FoodService, private sanitizer: DomSanitizer, private userService: UserService, private orderService: OrderService) { }
   ngOnInit() {
@@ -31,7 +31,7 @@ export class FinalBookingComponent implements OnInit {
         console.log(err);
       });
       this.id = this.route.snapshot.paramMap.get('id');
-      this.getFoodDetails(this.id);  
+      this.getFoodDetails(this.id);
     }
   getFoodDetails(id){
     this.fservice.getfoodid(id).subscribe(
@@ -46,7 +46,8 @@ export class FinalBookingComponent implements OnInit {
   onSubmit(form: NgForm){
     console.log(form.value);
     form.value.price = form.value.fprice * form.value.quan;
-    form.value.date = this.mydate;
+    form.value.date = this.myDate;
+    console.log(form.value.date);
     this.orderService.placeOrder(form.value).subscribe(
       data => {
         console.log(data);

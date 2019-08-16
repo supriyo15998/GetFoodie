@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
     this.userService.postUser(form.value).subscribe(
       res => {
         this.showSucessMessage = true;
+        alert('Account Created Successfully!');
         setTimeout(()=> this.showSucessMessage = false,4000);
         this.resetForm(form);
       },

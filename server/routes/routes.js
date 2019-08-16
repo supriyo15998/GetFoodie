@@ -35,6 +35,8 @@ router.get('/userProfile',jwtHelper.verifyJwtToken,userController.userProfile);
 
 //place order
 router.post('/userProfile/placeOrder',jwtHelper.verifyJwtToken, userController.placeOrder);
+//get orders via email
+router.get('/userProfile/getOrderByUser/:cemail',jwtHelper.verifyJwtToken,userController.getUserOrder);
 //CRUD on categories
 
 router.post('/categories',categoryController.insertCategory);

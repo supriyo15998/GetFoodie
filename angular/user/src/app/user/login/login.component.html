@@ -5,7 +5,10 @@
         <div class="col-sm-10">
         <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Enter your Email" [pattern]="emailRegex" required [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
         <div *ngIf="signInForm.submitted && email.errors?.pattern">
-            <label class="validation-message">Invalid email address.</label>
+            <label class="validation-message" style="color: red; border: 1px solid red; padding: 3px">Invalid email address.</label>
+        </div>
+        <div *ngIf="signInForm.submitted && form.get('email').errors?.serverError">
+                <label class="validation-message" style="color: red; border: 1px solid red; padding: 3px"> {{ form.get('email').errors?.serverError }} </label>
         </div>
         </div>
         </div>
@@ -14,7 +17,10 @@
         <div class="col-sm-10">
         <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Enter your Password" required minlength="4" [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
         <div *ngIf="signInForm.submitted && password.errors?.minlength">
-        <label class="validation-message">Minimum 4 characters.</label>
+        <label class="validation-message" style="color: red; border: 1px solid red; padding: 3px">Minimum 4 characters.</label>
+        </div>
+        <div *ngIf="signInForm.submitted && form.get('password').errors?.serverError">
+                <label class="validation-message" style="color: red; border: 1px solid red; padding: 3px"> {{ form.get('password').errors?.serverError }} </label>
         </div>
         </div>
         </div>

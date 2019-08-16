@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../shared/user.service';
 @Component({
@@ -9,13 +9,18 @@ import { UserService } from '../../shared/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  form = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  });
+
   constructor(private userService: UserService, private router: Router) { }
   model = {
     email: '',
     password: ''
   };
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  serverErrorMessages: string;
+  public serverErrorMessages: string;
   ngOnInit() {
     if(this.userService.isLoggedIn())
       this.router.navigateByUrl('/userProfile');
@@ -27,7 +32,19 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/userProfile');
       },
       err => {
-        this.serverErrorMessages = err.error.message;
+        const serverErrorMessages = err.error.error;
+
+        console.log(serverErrorMessages);
+        //alert(this.serverErrorMessages);
+        
+        Object.keys(serverErrorMessages).forEach(prop => {
+          const formCtrl = this.form.get(prop);
+          if(formCtrl) {
+            formCtrl.setErrors({
+              serverError: serverErrorMessages[prop]
+            });
+          }
+        });
     });
   }
 }

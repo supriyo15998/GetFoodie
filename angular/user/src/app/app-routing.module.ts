@@ -10,7 +10,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { BooknowComponent } from './user-profile/booknow/booknow.component';
 import { BookfoodComponent } from './user-profile/booknow/bookfood/bookfood.component';
 import { FinalBookingComponent } from './user-profile/booknow/final-booking/final-booking.component';
-
+import { PreviousBookingComponent } from './user-profile/previous-booking/previous-booking.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent,
     children: [{ path: '', component: LoginComponent },
@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'userProfile', component: UserProfileComponent, canActivate: [AuthGuard],
     children: [{ path: 'booknow', component: BooknowComponent },
                 { path: 'bookfood', component: BookfoodComponent },
-                { path: 'finalBooking', component: FinalBookingComponent } 
+                { path: 'finalBooking', component: FinalBookingComponent },
+                { path: 'previous-booking', component: PreviousBookingComponent } 
               ]
   }
 ];
