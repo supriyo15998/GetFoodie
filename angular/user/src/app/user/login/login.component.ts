@@ -33,10 +33,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         const serverErrorMessages = err.error.error;
-
         console.log(serverErrorMessages);
-        //alert(this.serverErrorMessages);
-        
         Object.keys(serverErrorMessages).forEach(prop => {
           const formCtrl = this.form.get(prop);
           if(formCtrl) {
